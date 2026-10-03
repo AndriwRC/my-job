@@ -1,0 +1,54 @@
+---
+import Emoji from "../Emoji.astro";
+import Slide from "./Slide.astro";
+
+interface Member {
+  icon: string;
+  label?: string;
+  highlight?: boolean;
+}
+
+const members: Member[] = [
+  { icon: "🧑‍💻", label: "Yo", highlight: true },
+  { icon: "👨‍💻" },
+  { icon: "🧔‍♂️" },
+  { icon: "👓" },
+  { icon: "🧑‍🔧" },
+  { icon: "🦸", label: "Ramón", highlight: true },
+];
+---
+
+<Slide
+  id="team"
+  eyebrow="07 · Equipo"
+  badgeClass="badge-success"
+  title="Mi equipo"
+  titleEmoji="👥"
+>
+  <p class="mt-4 max-w-2xl text-lg opacity-80">
+    Somos 6 en sistemas: 5 compañeros y yo (sí, todos hombres <Emoji
+      symbol="👨‍💻"
+    />)
+  </p>
+  <div class="avatar-group -space-x-4 mt-6">
+    {
+      members.map((member) => (
+        <div class="avatar avatar-placeholder">
+          <div
+            class={`brutal-sm w-12 rounded-none text-xl ${member.highlight ? "bg-primary text-primary-content" : "bg-neutral text-neutral-content"}`}
+          >
+            <Emoji symbol={member.icon} label={member.label} />
+          </div>
+        </div>
+      ))
+    }
+  </div>
+  <div class="card bg-secondary text-secondary-content brutal mt-6 max-w-md -rotate-2">
+    <div class="card-body">
+      <p class="text-xl font-bold">
+        Mi work bestie: Ramón <Emoji symbol="🫂" />
+      </p>
+      <p>Compañero de batallas, memes y tickets imposibles <Emoji symbol="😂" /></p>
+    </div>
+  </div>
+</Slide>

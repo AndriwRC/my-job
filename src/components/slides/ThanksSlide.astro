@@ -1,0 +1,70 @@
+---
+import Emoji from "../Emoji.astro";
+import Slide from "./Slide.astro";
+---
+
+<Slide
+  id="thanks"
+  eyebrow="11 · Fin"
+  badgeClass="badge-primary"
+  title="¡Gracias!"
+  titleEmoji="🙌"
+  splitTitle
+>
+  <p class="mt-4 max-w-2xl text-lg opacity-80">
+    ¿Preguntas? (de las fáciles, por favor <Emoji symbol="😅" />)
+    <span data-thanks-static hidden class="hidden">
+      <Emoji symbol="🎉" />
+    </span>
+  </p>
+  <div class="card bg-base-200 brutal mt-6 max-w-2xl">
+    <div class="card-body">
+      <p class="font-bold">
+        Dato curioso: esta presentación es una página web que programé yo <Emoji symbol="😎" /> — Astro + Tailwind + daisyUI + GSAP
+      </p>
+    </div>
+  </div>
+  <div class="mt-6 flex flex-wrap gap-3">
+    <a
+      href="#slide-intro"
+      class="btn btn-primary brutal brutal-press uppercase tracking-wide"
+    >
+      Volver al inicio <Emoji symbol="↩" />
+    </a>
+  </div>
+</Slide>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { confetti } from "../../lib/effects.ts";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const thanksSlide = document.querySelector("#slide-thanks");
+  const staticParty = document.querySelector("[data-thanks-static]");
+
+  if (thanksSlide && !thanksSlide.dataset.confettiWired) {
+    thanksSlide.dataset.confettiWired = "true";
+    ScrollTrigger.create({
+      trigger: thanksSlide,
+      start: "top 80%",
+      once: true,
+      onEnter: () => {
+        const fired = confetti();
+        if (!fired && staticParty instanceof HTMLElement) {
+          staticParty.hidden = false;
+          staticParty.classList.remove("hidden");
+        }
+      },
+    });
+  }
+
+  if (import.meta.hot) {
+    import.meta.hot.dispose(() =>
+      ScrollTrigger.getAll().forEach((trigger) => {
+        if (trigger.trigger === thanksSlide) trigger.kill();
+      }),
+    );
+  }
+</script>

@@ -1,0 +1,61 @@
+---
+import Emoji from "../Emoji.astro";
+import Slide from "./Slide.astro";
+
+interface WorkdayStep {
+  icon: string;
+  title: string;
+  detail?: string;
+}
+
+const steps: WorkdayStep[] = [
+  {
+    icon: "📥",
+    title: "Recibir tickets",
+    detail: "solicitudes de soporte o desarrollo",
+  },
+  {
+    icon: "🤔",
+    title: "Analizar qué piden",
+    detail: "spoiler: casi nunca es claro",
+  },
+  {
+    icon: "🔎",
+    title: "Encontrar dónde va el cambio",
+    detail: "o dónde está el problema",
+  },
+  { icon: "💻", title: "Programar la solución" },
+  { icon: "🧪", title: "Hacer pruebas" },
+  { icon: "🤝", title: "Presentarle la solución al cliente" },
+  { icon: "⏳", title: "Esperar aprobación para desplegar" },
+];
+---
+
+<Slide
+  id="day"
+  eyebrow="04 · Rutina"
+  badgeClass="badge-neutral"
+  title="Un día normal en mi trabajo"
+  titleEmoji="☕"
+>
+  <ul
+    data-fx="pop"
+    data-fx-stagger="0.08"
+    class="timeline timeline-vertical timeline-compact mt-6"
+  >
+    {
+      steps.map((step) => (
+        <li>
+          <div class="timeline-middle text-2xl">
+            <Emoji symbol={step.icon} />
+          </div>
+          <div class="timeline-end timeline-box brutal-sm mb-2 w-full text-left">
+            <p class="font-bold">{step.title}</p>
+            {step.detail && <p class="text-sm opacity-80">{step.detail}</p>}
+          </div>
+          <hr class="bg-base-content" />
+        </li>
+      ))
+    }
+  </ul>
+</Slide>

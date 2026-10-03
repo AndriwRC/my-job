@@ -1,0 +1,21 @@
+---
+interface Props {
+  symbol: string;
+  label?: string;
+  class?: string;
+}
+
+const { symbol, label, class: className } = Astro.props;
+---
+
+{
+  label ? (
+    <span role="img" aria-label={label} class={className}>
+      {symbol}
+    </span>
+  ) : (
+    <span aria-hidden="true" class={className}>
+      {symbol}
+    </span>
+  )
+}

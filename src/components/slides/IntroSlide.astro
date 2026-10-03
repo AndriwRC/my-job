@@ -1,0 +1,27 @@
+---
+import Emoji from "../Emoji.astro";
+import Slide from "./Slide.astro";
+---
+
+<Slide
+  id="intro"
+  eyebrow="01 · Hola"
+  badgeClass="badge-primary"
+  title="¡Hola! Les cuento de qué va mi trabajo"
+  titleEmoji="👋"
+  as="h1"
+  splitTitle
+>
+  <p class="mt-4 max-w-2xl text-lg opacity-80">
+    Spoiler: no, no arreglo impresoras <Emoji symbol="🖨️" />
+    <Emoji symbol="🚫" />
+  </p>
+  <div class="mt-6 flex flex-wrap gap-3">
+    <a
+      href="#slide-role"
+      class="btn btn-primary brutal brutal-press uppercase tracking-wide"
+    >
+      Empecemos <Emoji symbol="🚀" />
+    </a>
+  </div>
+</Slide>

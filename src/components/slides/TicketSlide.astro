@@ -1,0 +1,65 @@
+---
+import Emoji from "../Emoji.astro";
+import Slide from "./Slide.astro";
+
+const vagueTicket = "Asunto: URGENTE!!! el sistema hace cosas raras";
+const decodedTicket =
+  "El filtro por fecha del reporte no muestra los registros de hoy";
+---
+
+<Slide
+  id="tickets"
+  eyebrow="05 · Paso 2"
+  badgeClass="badge-primary"
+  title="Descifrando tickets"
+  titleEmoji="🕵️"
+>
+  <div class="mockup-window brutal mt-6 bg-base-200">
+    <div class="px-5 py-4">
+      <p class="font-bold">{vagueTicket}</p>
+    </div>
+  </div>
+  <div class="card bg-base-200 brutal mt-4">
+    <div class="card-body">
+      <p data-ticket-interp data-decoded={decodedTicket}>{decodedTicket}</p>
+      <p class="sr-only" aria-live="polite" data-ticket-live></p>
+      <div class="card-actions mt-2">
+        <button
+          type="button"
+          data-ticket-decode
+          hidden
+          class="btn btn-accent brutal brutal-press hidden uppercase tracking-wide"
+        >
+          Descifrar <Emoji symbol="🔍" />
+        </button>
+      </div>
+    </div>
+  </div>
+  <p class="mt-4 opacity-80">
+    Los tickets casi nunca dicen lo que realmente necesitan <Emoji
+      symbol="😅"
+    />
+  </p>
+</Slide>
+
+<script>
+  import { scrambleTo } from "../../lib/effects.ts";
+
+  const decodeBtn = document.querySelector("[data-ticket-decode]");
+  const interp = document.querySelector("[data-ticket-interp]");
+  const live = document.querySelector("[data-ticket-live]");
+  const decoded = interp?.getAttribute("data-decoded") ?? "";
+
+  if (decodeBtn instanceof HTMLButtonElement && interp instanceof HTMLElement) {
+    if (!decodeBtn.dataset.wired) {
+      decodeBtn.dataset.wired = "true";
+      interp.textContent = `${String.fromCodePoint(0x1f914)} …`;
+      decodeBtn.hidden = false;
+      decodeBtn.classList.remove("hidden");
+      decodeBtn.addEventListener("click", () => {
+        scrambleTo(interp, decoded);
+        if (live) live.textContent = `Ticket descifrado: ${decoded}`;
+      });
+    }
+  }
+</script>

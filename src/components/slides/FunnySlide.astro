@@ -1,0 +1,61 @@
+---
+import Emoji from "../Emoji.astro";
+import Slide from "./Slide.astro";
+
+interface ChatMessage {
+  from: "client" | "author";
+  header: string;
+  text: string;
+  funEmoji?: boolean;
+  delay: number;
+}
+
+const messages: ChatMessage[] = [
+  { from: "client", header: "Cliente", text: "No me funciona el sistema", delay: 0 },
+  { from: "author", header: "Yo", text: "¿Qué error le aparece?", delay: 0.15 },
+  { from: "client", header: "Cliente", text: "Ninguno, solo no funciona", delay: 0.3 },
+  { from: "author", header: "Yo", text: "¿Ya intentó iniciar sesión?", delay: 0.45 },
+  { from: "client", header: "Cliente", text: "Ahhh… era eso", funEmoji: true, delay: 0.6 },
+];
+---
+
+<Slide
+  id="funny"
+  eyebrow="08 · Lo random"
+  badgeClass="badge-warning"
+  title="Lo más divertido del trabajo"
+  titleEmoji="🤣"
+>
+  <p class="mt-4 max-w-2xl text-lg opacity-80">
+    Reírnos de lo que piden los clientes… que muchas veces ya tenían la
+    respuesta <Emoji symbol="🕵️" />
+  </p>
+  <div class="mt-6 max-w-2xl">
+    {
+      messages.map((message) => (
+        <div
+          class={message.from === "client" ? "chat chat-start" : "chat chat-end"}
+          data-reveal
+          data-reveal-delay={message.delay}
+        >
+          <div class="chat-header">{message.header}</div>
+          <div
+            class={
+              message.from === "client"
+                ? "chat-bubble chat-bubble-secondary brutal-sm"
+                : "chat-bubble chat-bubble-primary brutal-sm"
+            }
+          >
+            {message.text}
+            {message.funEmoji && (
+              <>
+                {" "}
+                <Emoji symbol="😅" />
+              </>
+            )}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</Slide>

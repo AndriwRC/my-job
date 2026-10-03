@@ -53,3 +53,17 @@ Requires Node.js `>=22.12.0` and [pnpm](https://pnpm.io).
 | `pnpm dev`     | Start the dev server at `localhost:4321`      |
 | `pnpm build`   | Build the production site to `./dist/`        |
 | `pnpm preview` | Preview the production build locally          |
+
+## Presenting it
+
+Put the page on screen and walk through it out loud. UI copy is Spanish;
+these controls are the ones worth knowing before presenting.
+
+| Control | Action |
+| :------ | :----- |
+| `→` / `↓` / `Space` | Next slide (`Space` never steals a focused button: it activates the control instead) |
+| `←` / `↑` | Previous slide |
+| `Home` / `End` | First / last slide |
+| Theme switch (`🌞` / `🌚`) in the bottom bar | Toggles the light `brutal` and dark `brutal-dark` themes without changing slide; works even with JavaScript disabled |
+| `Descifrar` button (ticket slide) | Scrambles the vague client ticket into what it actually means; activates with pointer, `Enter`, or `Space` and can be replayed |
+| `Desplegar a producción` button (deploy slide) | Runs a 3-2-1 countdown that ends in a confetti celebration; activates with pointer, `Enter`, or `Space` and can be replayed |

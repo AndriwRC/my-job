@@ -1,0 +1,41 @@
+---
+import Emoji from "../Emoji.astro";
+import Slide from "./Slide.astro";
+
+const faceCodes = [0x1f60a, 0x1f604, 0x1f973, 0x1f64c];
+const faces = Array.from({ length: 24 }, (_, i) =>
+  String.fromCodePoint(faceCodes[i % faceCodes.length] ?? 0x1f60a),
+);
+---
+
+<Slide
+  id="pride"
+  eyebrow="10 · Orgullo"
+  badgeClass="badge-info"
+  title="De lo que estoy orgulloso"
+  titleEmoji="💛"
+>
+  <p class="mt-4 max-w-2xl text-xl font-bold">
+    Puedo hacerle la vida más fácil a muchas personas
+  </p>
+  <div
+    data-fx="pop"
+    data-fx-stagger="0.02"
+    aria-hidden="true"
+    class="mt-6 grid max-w-md grid-cols-6 gap-2"
+  >
+    {
+      faces.map((face) => (
+        <span class="text-center text-2xl">
+          <Emoji symbol={face} />
+        </span>
+      ))
+    }
+  </div>
+  <p class="sr-only">Muchas personas felices</p>
+  <p class="mt-6 opacity-80">
+    Cada ticket resuelto es un día menos complicado para alguien <Emoji
+      symbol="✨"
+    />
+  </p>
+</Slide>

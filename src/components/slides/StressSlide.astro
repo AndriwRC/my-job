@@ -1,0 +1,70 @@
+---
+import Emoji from "../Emoji.astro";
+import Slide from "./Slide.astro";
+
+interface TriadCard {
+  heading: string;
+  icon: string;
+  quote: string;
+  wiggle?: boolean;
+}
+
+const triad: TriadCard[] = [
+  { heading: "Lo que pidió", icon: "🗣️", quote: "Un botón para exportar" },
+  {
+    heading: "Lo que explicó",
+    icon: "🤷",
+    quote: "Que exporte, mande correos e imprima… y que haga café",
+    wiggle: true,
+  },
+  {
+    heading: "Lo que necesitaba",
+    icon: "💡",
+    quote: "Que le mostraran el botón que ya existía",
+  },
+];
+---
+
+<Slide
+  id="stress"
+  eyebrow="09 · Estrés"
+  badgeClass="badge-error"
+  title="Lo que más me estresa"
+  titleEmoji="😵‍💫"
+>
+  <p class="mt-4 max-w-2xl text-lg opacity-80">
+    Clientes que no saben lo que quieren (o no entienden lo que piden)
+  </p>
+  <div class="mt-6 grid gap-4 sm:grid-cols-3">
+    {
+      triad.map((card) => (
+        <div
+          class="card bg-base-200 brutal"
+          data-fx={card.wiggle ? "wiggle" : undefined}
+        >
+          <div class="card-body">
+            <p class="font-bold">
+              {card.heading} <Emoji symbol={card.icon} />
+            </p>
+            <p class="opacity-80">&ldquo;{card.quote}&rdquo;</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+  <div class="mt-6 flex items-center gap-4">
+    <div
+      data-fx="count-up"
+      data-fx-to="99"
+      class="radial-progress text-error"
+      style="--value:99;"
+      aria-valuenow="99"
+      role="progressbar"
+    >
+      99%
+    </div>
+    <p class="text-lg font-bold">
+      Nivel de estrés: 99% <Emoji symbol="🔥" />
+    </p>
+  </div>
+</Slide>

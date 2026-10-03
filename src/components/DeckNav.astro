@@ -1,0 +1,49 @@
+---
+import Emoji from "./Emoji.astro";
+---
+
+<nav
+  aria-label="Navegación de diapositivas"
+  class="fixed inset-x-0 bottom-0 z-10 border-t-[3px] border-base-content bg-base-100"
+>
+  <div
+    class="mx-auto flex w-full max-w-4xl items-center justify-between gap-3 px-4 py-2 sm:px-6"
+  >
+    <button
+      type="button"
+      id="deck-prev"
+      class="btn btn-ghost btn-sm brutal brutal-press uppercase tracking-wide"
+      >&larr; Anterior</button
+    >
+    <p class="text-sm opacity-70">
+      <span id="deck-count" aria-hidden="true">1 / 11</span>
+      <span id="deck-count-sr" class="sr-only" aria-live="polite"
+        >Diapositiva 1 de 11</span
+      >
+      <span class="hidden sm:inline">
+        &middot; También con las flechas <Emoji symbol="⌨️" />
+      </span>
+    </p>
+    <div class="flex items-center gap-2">
+      <label
+        class="swap swap-rotate brutal-sm brutal-press cursor-pointer px-2 py-1 text-lg leading-none"
+      >
+        <input
+          type="checkbox"
+          class="theme-controller"
+          value="brutal-dark"
+          aria-label="Cambiar entre tema claro y oscuro"
+        />
+        <Emoji symbol="🌞" class="swap-off" />
+        <Emoji symbol="🌚" class="swap-on" />
+      </label>
+      <button
+        type="button"
+        id="deck-next"
+        class="btn btn-primary btn-sm brutal brutal-press uppercase tracking-wide"
+        >Siguiente &rarr;</button
+      >
+    </div>
+  </div>
+</nav>
+<div class="h-16" aria-hidden="true"></div>

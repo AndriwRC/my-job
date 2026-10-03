@@ -1,252 +1,45 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import DeckNav from '../components/DeckNav.astro';
+import IntroSlide from '../components/slides/IntroSlide.astro';
+import RoleSlide from '../components/slides/RoleSlide.astro';
+import CompanySlide from '../components/slides/CompanySlide.astro';
+import DaySlide from '../components/slides/DaySlide.astro';
+import TicketSlide from '../components/slides/TicketSlide.astro';
+import DeploySlide from '../components/slides/DeploySlide.astro';
+import TeamSlide from '../components/slides/TeamSlide.astro';
+import FunnySlide from '../components/slides/FunnySlide.astro';
+import StressSlide from '../components/slides/StressSlide.astro';
+import PrideSlide from '../components/slides/PrideSlide.astro';
+import ThanksSlide from '../components/slides/ThanksSlide.astro';
 ---
 
 <Layout>
-  <main id="deck" class="mx-auto w-full max-w-4xl px-4 sm:px-6">
-    <section
-      data-slide
-      id="slide-1"
-      aria-labelledby="slide-1-heading"
-      class="flex min-h-screen flex-col justify-center py-16"
-    >
-      <div data-reveal>
-        <div class="badge badge-primary badge-lg mb-4 brutal-sm uppercase tracking-wide">Mi trabajo &bull; Demo en vivo</div>
-        <h1 id="slide-1-heading" tabindex="-1" class="text-4xl font-bold tracking-tight sm:text-5xl">
-          Construyo experiencias interactivas para la web.
-        </h1>
-        <p class="mt-4 max-w-2xl text-lg opacity-80">
-          Esta página <em>es</em> la prueba: Astro trae el contenido, Tailwind + daisyUI le dan estilo,
-          y GSAP la mueve como diapositivas.
-        </p>
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a href="#slide-2" class="btn btn-primary brutal brutal-press uppercase tracking-wide" data-next>Ver las herramientas</a>
-          <a href="https://docs.astro.build" class="btn btn-ghost brutal brutal-press uppercase tracking-wide">Documentación de Astro</a>
-        </div>
-      </div>
-    </section>
-
-    <section
-      data-slide
-      id="slide-2"
-      aria-labelledby="slide-2-heading"
-      class="flex min-h-screen flex-col justify-center py-16"
-    >
-      <div data-reveal>
-        <div class="badge badge-secondary mb-4 brutal-sm uppercase tracking-wide">Estilo &bull; Tailwind + daisyUI por defecto</div>
-        <h2 id="slide-2-heading" tabindex="-1" class="text-3xl font-bold sm:text-4xl">
-          Con estilo desde el inicio.
-        </h2>
-        <p class="mt-3 max-w-2xl opacity-80">
-          Sin tema personalizado en este cambio — estas son primitivas daisyUI por defecto.
-        </p>
-      </div>
-      <div class="mt-6 grid gap-4 sm:grid-cols-2">
-        <div class="card bg-base-200 brutal" data-reveal data-reveal-delay="0.05">
-          <div class="card-body">
-            <h3 class="card-title">Tarjeta + botones</h3>
-            <p class="opacity-80">Utilidades y componentes se combinan sin CSS extra.</p>
-            <div class="card-actions mt-2">
-              <button type="button" class="btn btn-primary btn-sm brutal brutal-press uppercase tracking-wide">Primario</button>
-              <button type="button" class="btn btn-outline btn-sm brutal brutal-press uppercase tracking-wide">Contorno</button>
-            </div>
-          </div>
-        </div>
-        <div class="card bg-base-200 brutal" data-reveal data-reveal-delay="0.15">
-          <div class="card-body">
-            <h3 class="card-title">Insignias + alerta</h3>
-            <div class="flex flex-wrap gap-2">
-              <span class="badge badge-accent brutal-sm uppercase tracking-wide">Astro 7</span>
-              <span class="badge badge-neutral brutal-sm uppercase tracking-wide">Tailwind v4</span>
-              <span class="badge badge-ghost brutal-sm uppercase tracking-wide">GSAP 3</span>
-            </div>
-            <div role="alert" class="alert alert-success mt-3 py-2 text-sm brutal-sm">
-              <span>La hoja de estilos global está activa en cada página.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section
-      data-slide
-      id="slide-3"
-      aria-labelledby="slide-3-heading"
-      class="flex min-h-screen flex-col justify-center py-16"
-    >
-      <div data-reveal>
-        <div class="badge badge-accent mb-4 brutal-sm uppercase tracking-wide">Movimiento &bull; Transiciones con GSAP</div>
-        <h2 id="slide-3-heading" tabindex="-1" class="text-3xl font-bold sm:text-4xl">
-          Diapositivas que se mueven con dirección.
-        </h2>
-        <p class="mt-3 max-w-2xl opacity-80">
-          Avanzar entra desde la derecha, retroceder desde la izquierda. Desplázate o usa los controles.
-        </p>
-      </div>
-      <ul class="mt-6 space-y-3">
-        <li class="card bg-base-200 px-5 py-4 brutal" data-reveal>Aparece una vez por bloque, no se repite al desplazar.</li>
-        <li class="card bg-base-200 px-5 py-4 brutal" data-reveal data-reveal-delay="0.1">Escalona con <code>data-reveal-delay</code> para guiar la atención.</li>
-        <li class="card bg-base-200 px-5 py-4 brutal" data-reveal data-reveal-delay="0.2">Con movimiento reducido se resuelve al instante al estado final.</li>
-      </ul>
-    </section>
-
-    <section
-      data-slide
-      id="slide-4"
-      aria-labelledby="slide-4-heading"
-      class="flex min-h-screen flex-col justify-center py-16"
-    >
-      <div data-reveal>
-        <div class="badge badge-ghost mb-4 brutal-sm uppercase tracking-wide">Final &bull; Todo conectado</div>
-        <h2 id="slide-4-heading" tabindex="-1" class="text-3xl font-bold sm:text-4xl">
-          Poco y pulido gana a mucho a medias.
-        </h2>
-        <p class="mt-3 max-w-2xl opacity-80">
-          Estilo y movimiento ya comparten una base. El contenido real llega en el siguiente cambio.
-        </p>
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a href="#slide-1" class="btn btn-primary brutal brutal-press uppercase tracking-wide" data-prev>Volver al inicio</a>
-        </div>
-      </div>
-    </section>
+  <main id="deck" class="mx-auto w-full max-w-4xl pl-4 pr-7 sm:pl-6 sm:pr-9">
+    <IntroSlide />
+    <RoleSlide />
+    <CompanySlide />
+    <DaySlide />
+    <TicketSlide />
+    <DeploySlide />
+    <TeamSlide />
+    <FunnySlide />
+    <StressSlide />
+    <PrideSlide />
+    <ThanksSlide />
   </main>
 
-  <nav
-    aria-label="Navegación de diapositivas"
-    class="fixed inset-x-0 bottom-0 z-10 border-t-[3px] border-base-content bg-base-100"
-  >
-    <div class="mx-auto flex w-full max-w-4xl items-center justify-between gap-3 px-4 py-2 sm:px-6">
-      <button type="button" id="deck-prev" class="btn btn-ghost btn-sm brutal brutal-press uppercase tracking-wide">&larr; Anterior</button>
-      <p class="text-sm opacity-70">
-        <span id="deck-count" aria-hidden="true">1 / 4</span>
-        <span id="deck-count-sr" class="sr-only" aria-live="polite">Diapositiva 1 de 4</span>
-        <span class="hidden sm:inline"> &middot; También con las flechas <span aria-hidden="true">⌨️</span></span>
-      </p>
-      <div class="flex items-center gap-2">
-        <label class="swap swap-rotate brutal-sm brutal-press cursor-pointer px-2 py-1 text-lg leading-none">
-          <input type="checkbox" class="theme-controller" value="brutal-dark" aria-label="Cambiar entre tema claro y oscuro" />
-          <span class="swap-off" aria-hidden="true">🌞</span>
-          <span class="swap-on" aria-hidden="true">🌚</span>
-        </label>
-        <button type="button" id="deck-next" class="btn btn-primary btn-sm brutal brutal-press uppercase tracking-wide">Siguiente &rarr;</button>
-      </div>
-    </div>
-  </nav>
-  <div class="h-16" aria-hidden="true"></div>
+  <DeckNav />
 </Layout>
 
 <script>
-  import { initReveals, prefersReducedMotion, transitionSlide } from "../lib/motion.ts";
+  import { initDeck } from "../lib/deck.ts";
+  import { initEffects } from "../lib/effects.ts";
+  import { initReveals } from "../lib/motion.ts";
 
-  const slides = Array.from(document.querySelectorAll("[data-slide]"));
-  const count = document.getElementById("deck-count");
-  const countSr = document.getElementById("deck-count-sr");
-  const prevBtn = document.getElementById("deck-prev");
-  const nextBtn = document.getElementById("deck-next");
-  let currentIndex = 0;
-  let navigating = false;
-
-  const cleanupReveals = initReveals(document);
-
-  function updateCount() {
-    if (count) count.textContent = `${currentIndex + 1} / ${slides.length}`;
-    if (countSr) countSr.textContent = `Diapositiva ${currentIndex + 1} de ${slides.length}`;
-    if (prevBtn) prevBtn.toggleAttribute("disabled", currentIndex === 0);
-    if (nextBtn) nextBtn.toggleAttribute("disabled", currentIndex === slides.length - 1);
-  }
-
-  function currentClosestIndex() {
-    let best = 0;
-    let bestDist = Number.POSITIVE_INFINITY;
-    const mid = window.innerHeight / 2;
-    slides.forEach((slide, i) => {
-      const rect = slide.getBoundingClientRect();
-      const dist = Math.abs(rect.top + rect.height / 2 - mid);
-      if (dist < bestDist) {
-        bestDist = dist;
-        best = i;
-      }
-    });
-    return best;
-  }
-
-  async function goTo(index, direction) {
-    if (navigating || index < 0 || index >= slides.length || index === currentIndex) {
-      currentIndex = currentClosestIndex();
-      updateCount();
-      return;
-    }
-    navigating = true;
-    const prev = slides[currentIndex];
-    const next = slides[index];
-    const dir = direction ?? (index > currentIndex ? "forward" : "backward");
-    currentIndex = index;
-
-    if (prefersReducedMotion()) {
-      next.scrollIntoView({ behavior: "auto", block: "start" });
-    } else {
-      next.scrollIntoView({ behavior: "smooth", block: "start" });
-      await transitionSlide(prev, next, dir);
-    }
-
-    const heading = next.querySelector("h1, h2");
-    if (heading instanceof HTMLElement) heading.focus({ preventScroll: true });
-
-    updateCount();
-    navigating = false;
-  }
-
-  prevBtn?.addEventListener("click", () => void goTo(currentIndex - 1, "backward"));
-  nextBtn?.addEventListener("click", () => void goTo(currentIndex + 1, "forward"));
-
-  document.querySelectorAll("a[href^='#slide-']").forEach((link) => {
-    link.addEventListener("click", (event) => {
-      const id = link.getAttribute("href")?.slice(1);
-      const target = id ? document.getElementById(id) : null;
-      if (!target) return;
-      event.preventDefault();
-      const index = slides.indexOf(target);
-      void goTo(index);
-    });
-  });
-
-  window.addEventListener(
-    "scroll",
-    () => {
-      if (!navigating) {
-        currentIndex = currentClosestIndex();
-        updateCount();
-      }
-    },
-    { passive: true },
-  );
-
-  window.addEventListener("keydown", (event) => {
-    if (event.key === " ") {
-      const target = event.target;
-      if (target instanceof HTMLElement && target.closest("input, button, a, select, textarea, [contenteditable]")) {
-        return;
-      }
-      event.preventDefault();
-      void goTo(currentIndex + 1, "forward");
-    } else if (event.key === "ArrowRight" || event.key === "ArrowDown") {
-      event.preventDefault();
-      void goTo(currentIndex + 1, "forward");
-    } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
-      event.preventDefault();
-      void goTo(currentIndex - 1, "backward");
-    } else if (event.key === "Home") {
-      event.preventDefault();
-      void goTo(0, "backward");
-    } else if (event.key === "End") {
-      event.preventDefault();
-      void goTo(slides.length - 1, "forward");
-    }
-  });
-
-  updateCount();
+  const cleanups = [initDeck(), initReveals(), initEffects()];
 
   if (import.meta.hot) {
-    import.meta.hot.dispose(() => cleanupReveals());
+    import.meta.hot.dispose(() => cleanups.forEach((cleanup) => cleanup()));
   }
 </script>

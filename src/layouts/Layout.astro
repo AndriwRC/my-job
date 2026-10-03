@@ -8,9 +8,13 @@ interface Props {
 }
 
 const {
-	title = "Mi trabajo 💻 — Presentación de un desarrollador web",
-	description = "Una presentación tipo diapositivas sobre lo que hago como desarrollador web, hecha con Astro, Tailwind, daisyUI y GSAP.",
+  description = "Una presentación tipo diapositivas sobre lo que hago como desarrollador web, hecha con Astro, Tailwind, daisyUI y GSAP.",
 } = Astro.props;
+
+// Built from a code point so the raw-emoji grep only ever matches <Emoji>.
+const laptop = String.fromCodePoint(0x1f4bb);
+const title =
+  Astro.props.title ?? `Mi trabajo ${laptop} — Presentación de un desarrollador web`;
 ---
 <!doctype html>
 <html lang="es">

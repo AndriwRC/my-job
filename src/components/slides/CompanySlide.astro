@@ -1,0 +1,41 @@
+---
+import Emoji from "../Emoji.astro";
+import Slide from "./Slide.astro";
+
+const letters = [
+  { letter: "L", word: "Leading" },
+  { letter: "Y", word: "Your" },
+  { letter: "D", word: "Deployment" },
+];
+---
+
+<Slide
+  id="company"
+  eyebrow="03 · Empresa"
+  badgeClass="badge-accent"
+  title="¿Dónde trabajo?"
+  titleEmoji="🏢"
+>
+  <p class="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">LYD Latam</p>
+  <div
+    data-fx="pop"
+    data-fx-stagger="0.15"
+    class="mt-6 grid gap-4 sm:grid-cols-3"
+  >
+    {
+      letters.map(({ letter, word }) => (
+        <div class="card bg-base-200 brutal">
+          <div class="card-body items-center text-center">
+            <p class="text-5xl font-bold">{letter}</p>
+            <p class="text-lg font-bold">{word}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+  <p class="mt-6 opacity-80">
+    Sí, &ldquo;Deployment&rdquo; de despliegue… guarden ese dato <Emoji
+      symbol="👀"
+    />
+  </p>
+</Slide>

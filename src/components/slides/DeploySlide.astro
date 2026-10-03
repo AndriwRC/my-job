@@ -1,0 +1,127 @@
+---
+import Emoji from "../Emoji.astro";
+import Slide from "./Slide.astro";
+---
+
+<Slide
+  id="deploy"
+  eyebrow="06 · Producción"
+  badgeClass="badge-error"
+  title="El momento más tenso: desplegar a producción"
+  titleEmoji="🚨"
+>
+  <p class="mt-4 max-w-2xl text-lg opacity-80">
+    Si algo falla, falla la operación de la empresa… y la de todos los
+    clientes. Sin presión <Emoji symbol="🙃" />
+  </p>
+  <p data-deploy-count aria-hidden="true" class="mt-4 min-h-16 text-6xl font-bold"></p>
+  <div class="mt-4 flex flex-wrap gap-3">
+    <button
+      type="button"
+      data-deploy-btn
+      hidden
+      class="btn btn-error btn-lg brutal brutal-press hidden uppercase tracking-wide"
+    >
+      <span data-deploy-label-idle>
+        <Emoji symbol="🚀" /> Desplegar a producción
+      </span>
+      <span data-deploy-label-replay hidden class="hidden">
+        <Emoji symbol="🔁" /> Desplegar otra vez
+      </span>
+    </button>
+  </div>
+  <p data-deploy-msg hidden class="hidden mt-4 text-lg font-bold">
+    <Emoji symbol="✅" /> ¡Desplegado! Todo funciona… por ahora <Emoji symbol="😮‍💨" />
+    <span data-deploy-static hidden class="hidden">
+      <Emoji symbol="🎉" />
+    </span>
+  </p>
+  <p class="sr-only" aria-live="polite" data-deploy-live></p>
+</Slide>
+
+<script>
+  import { gsap } from "gsap";
+  import { confetti, wiggle } from "../../lib/effects.ts";
+  import { prefersReducedMotion } from "../../lib/motion.ts";
+
+  const deployBtn = document.querySelector("[data-deploy-btn]");
+  const countDisplay = document.querySelector("[data-deploy-count]");
+  const msg = document.querySelector("[data-deploy-msg]");
+  const staticParty = document.querySelector("[data-deploy-static]");
+  const live = document.querySelector("[data-deploy-live]");
+  const labelIdle = document.querySelector("[data-deploy-label-idle]");
+  const labelReplay = document.querySelector("[data-deploy-label-replay]");
+
+  let timeline: gsap.Timeline | null = null;
+
+  function show(el: Element | null) {
+    if (el instanceof HTMLElement) {
+      el.hidden = false;
+      el.classList.remove("hidden");
+    }
+  }
+
+  function hide(el: Element | null) {
+    if (el instanceof HTMLElement) {
+      el.hidden = true;
+      if (!el.classList.contains("hidden")) el.classList.add("hidden");
+    }
+  }
+
+  if (
+    deployBtn instanceof HTMLButtonElement &&
+    countDisplay instanceof HTMLElement &&
+    msg instanceof HTMLElement
+  ) {
+    if (!deployBtn.dataset.wired) {
+      deployBtn.dataset.wired = "true";
+      deployBtn.hidden = false;
+      deployBtn.classList.remove("hidden");
+
+      deployBtn.addEventListener("click", () => {
+        if (timeline?.isActive()) return;
+        const reduced = prefersReducedMotion();
+        hide(msg);
+        hide(staticParty);
+        deployBtn.disabled = true;
+        if (live) live.textContent = "Desplegando a producción…";
+        if (!reduced && deployBtn) wiggle(deployBtn);
+
+        timeline = gsap.timeline({
+          onComplete: () => {
+            countDisplay.textContent = "";
+            show(msg);
+            const rect = deployBtn.getBoundingClientRect();
+            const fired = confetti({
+              x: rect.left + rect.width / 2,
+              y: rect.top,
+            });
+            if (!fired) show(staticParty);
+            deployBtn.disabled = false;
+            hide(labelIdle);
+            show(labelReplay);
+            if (live) live.textContent = "¡Despliegue exitoso!";
+          },
+        });
+
+        for (const n of ["3", "2", "1"]) {
+          timeline.call(() => {
+            countDisplay.textContent = n;
+            if (!prefersReducedMotion()) {
+              gsap.fromTo(
+                countDisplay,
+                { scale: 0 },
+                { scale: 1, duration: 0.5, ease: "brutal-bounce" },
+              );
+            }
+          });
+          timeline.to({}, { duration: 1 });
+        }
+      });
+    }
+  }
+
+  if (import.meta.hot) {
+    import.meta.hot.dispose(() => timeline?.kill());
+  }
+</script>

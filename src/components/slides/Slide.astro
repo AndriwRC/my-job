@@ -1,0 +1,60 @@
+---
+import Emoji from "../Emoji.astro";
+
+interface Props {
+  id: string;
+  eyebrow: string;
+  badgeClass?: string;
+  title: string;
+  titleEmoji?: string;
+  titleEmojiLabel?: string;
+  as?: "h1" | "h2";
+  splitTitle?: boolean;
+}
+
+const {
+  id,
+  eyebrow,
+  badgeClass = "badge-primary",
+  title,
+  titleEmoji,
+  titleEmojiLabel,
+  as: Tag = "h2",
+  splitTitle = false,
+} = Astro.props;
+
+const headingId = `slide-${id}-heading`;
+---
+
+<section
+  data-slide
+  id={`slide-${id}`}
+  aria-labelledby={headingId}
+  class="flex min-h-screen flex-col justify-center py-16"
+>
+  <div data-reveal>
+    <div class={`badge mb-4 brutal-sm uppercase tracking-wide ${badgeClass}`}>
+      {eyebrow}
+    </div>
+    <Tag
+      id={headingId}
+      tabindex="-1"
+      class={
+        Tag === "h1"
+          ? "text-4xl font-bold tracking-tight break-words sm:text-5xl"
+          : "text-3xl font-bold break-words sm:text-4xl"
+      }
+    >
+      {splitTitle ? <span data-fx="split-bounce">{title}</span> : title}
+      {
+        titleEmoji && (
+          <>
+            {" "}
+            <Emoji symbol={titleEmoji} label={titleEmojiLabel} />
+          </>
+        )
+      }
+    </Tag>
+    <slot />
+  </div>
+</section>
