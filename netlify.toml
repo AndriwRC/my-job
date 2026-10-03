@@ -1,0 +1,9 @@
+# Static Astro build; no adapter needed.
+[build]
+  command = "pnpm build"
+  publish = "dist"
+
+[build.environment]
+  # Node 24 still bundles Corepack, which Netlify uses to install the
+  # pnpm version pinned in package.json "packageManager".
+  NODE_VERSION = "24"
