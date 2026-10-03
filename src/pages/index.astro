@@ -11,17 +11,17 @@ import Layout from '../layouts/Layout.astro';
       class="flex min-h-screen flex-col justify-center py-16"
     >
       <div data-reveal>
-        <div class="badge badge-primary badge-lg mb-4">My Job &bull; Live Demo</div>
+        <div class="badge badge-primary badge-lg mb-4 brutal-sm uppercase tracking-wide">Mi trabajo &bull; Demo en vivo</div>
         <h1 id="slide-1-heading" tabindex="-1" class="text-4xl font-bold tracking-tight sm:text-5xl">
-          I build interactive experiences for the web.
+          Construyo experiencias interactivas para la web.
         </h1>
         <p class="mt-4 max-w-2xl text-lg opacity-80">
-          This page <em>is</em> the proof: Astro ships the content, Tailwind + daisyUI theme it,
-          and GSAP moves it like slides.
+          Esta página <em>es</em> la prueba: Astro trae el contenido, Tailwind + daisyUI le dan estilo,
+          y GSAP la mueve como diapositivas.
         </p>
         <div class="mt-6 flex flex-wrap gap-3">
-          <a href="#slide-2" class="btn btn-primary" data-next>See the stack</a>
-          <a href="https://docs.astro.build" class="btn btn-ghost">Astro docs</a>
+          <a href="#slide-2" class="btn btn-primary brutal brutal-press uppercase tracking-wide" data-next>Ver las herramientas</a>
+          <a href="https://docs.astro.build" class="btn btn-ghost brutal brutal-press uppercase tracking-wide">Documentación de Astro</a>
         </div>
       </div>
     </section>
@@ -33,35 +33,35 @@ import Layout from '../layouts/Layout.astro';
       class="flex min-h-screen flex-col justify-center py-16"
     >
       <div data-reveal>
-        <div class="badge badge-secondary mb-4">Styling &bull; Tailwind + daisyUI defaults</div>
+        <div class="badge badge-secondary mb-4 brutal-sm uppercase tracking-wide">Estilo &bull; Tailwind + daisyUI por defecto</div>
         <h2 id="slide-2-heading" tabindex="-1" class="text-3xl font-bold sm:text-4xl">
-          Themed out of the box.
+          Con estilo desde el inicio.
         </h2>
         <p class="mt-3 max-w-2xl opacity-80">
-          No custom theme in this change — these are default daisyUI primitives.
+          Sin tema personalizado en este cambio — estas son primitivas daisyUI por defecto.
         </p>
       </div>
       <div class="mt-6 grid gap-4 sm:grid-cols-2">
-        <div class="card bg-base-200 shadow-xl" data-reveal data-reveal-delay="0.05">
+        <div class="card bg-base-200 brutal" data-reveal data-reveal-delay="0.05">
           <div class="card-body">
-            <h3 class="card-title">Card + buttons</h3>
-            <p class="opacity-80">Utilities and components compose without extra CSS.</p>
+            <h3 class="card-title">Tarjeta + botones</h3>
+            <p class="opacity-80">Utilidades y componentes se combinan sin CSS extra.</p>
             <div class="card-actions mt-2">
-              <button type="button" class="btn btn-primary btn-sm">Primary</button>
-              <button type="button" class="btn btn-outline btn-sm">Outline</button>
+              <button type="button" class="btn btn-primary btn-sm brutal brutal-press uppercase tracking-wide">Primario</button>
+              <button type="button" class="btn btn-outline btn-sm brutal brutal-press uppercase tracking-wide">Contorno</button>
             </div>
           </div>
         </div>
-        <div class="card bg-base-200 shadow-xl" data-reveal data-reveal-delay="0.15">
+        <div class="card bg-base-200 brutal" data-reveal data-reveal-delay="0.15">
           <div class="card-body">
-            <h3 class="card-title">Badges + alert</h3>
+            <h3 class="card-title">Insignias + alerta</h3>
             <div class="flex flex-wrap gap-2">
-              <span class="badge badge-accent">Astro 7</span>
-              <span class="badge badge-neutral">Tailwind v4</span>
-              <span class="badge badge-ghost">GSAP 3</span>
+              <span class="badge badge-accent brutal-sm uppercase tracking-wide">Astro 7</span>
+              <span class="badge badge-neutral brutal-sm uppercase tracking-wide">Tailwind v4</span>
+              <span class="badge badge-ghost brutal-sm uppercase tracking-wide">GSAP 3</span>
             </div>
-            <div role="alert" class="alert alert-success mt-3 py-2 text-sm">
-              <span>Global stylesheet is live on every page.</span>
+            <div role="alert" class="alert alert-success mt-3 py-2 text-sm brutal-sm">
+              <span>La hoja de estilos global está activa en cada página.</span>
             </div>
           </div>
         </div>
@@ -75,18 +75,18 @@ import Layout from '../layouts/Layout.astro';
       class="flex min-h-screen flex-col justify-center py-16"
     >
       <div data-reveal>
-        <div class="badge badge-accent mb-4">Motion &bull; GSAP slide transitions</div>
+        <div class="badge badge-accent mb-4 brutal-sm uppercase tracking-wide">Movimiento &bull; Transiciones con GSAP</div>
         <h2 id="slide-3-heading" tabindex="-1" class="text-3xl font-bold sm:text-4xl">
-          Slides that move with direction.
+          Diapositivas que se mueven con dirección.
         </h2>
         <p class="mt-3 max-w-2xl opacity-80">
-          Forward enters from the right, backward from the left. Scroll or use the controls.
+          Avanzar entra desde la derecha, retroceder desde la izquierda. Desplázate o usa los controles.
         </p>
       </div>
       <ul class="mt-6 space-y-3">
-        <li class="card bg-base-200 px-5 py-4 shadow" data-reveal>Fade + rise once per block, never replays on scroll.</li>
-        <li class="card bg-base-200 px-5 py-4 shadow" data-reveal data-reveal-delay="0.1">Stagger via <code>data-reveal-delay</code> for guided attention.</li>
-        <li class="card bg-base-200 px-5 py-4 shadow" data-reveal data-reveal-delay="0.2">Reduced motion resolves instantly to the final state.</li>
+        <li class="card bg-base-200 px-5 py-4 brutal" data-reveal>Aparece una vez por bloque, no se repite al desplazar.</li>
+        <li class="card bg-base-200 px-5 py-4 brutal" data-reveal data-reveal-delay="0.1">Escalona con <code>data-reveal-delay</code> para guiar la atención.</li>
+        <li class="card bg-base-200 px-5 py-4 brutal" data-reveal data-reveal-delay="0.2">Con movimiento reducido se resuelve al instante al estado final.</li>
       </ul>
     </section>
 
@@ -97,31 +97,39 @@ import Layout from '../layouts/Layout.astro';
       class="flex min-h-screen flex-col justify-center py-16"
     >
       <div data-reveal>
-        <div class="badge badge-ghost mb-4">End &bull; Stack wired</div>
+        <div class="badge badge-ghost mb-4 brutal-sm uppercase tracking-wide">Final &bull; Todo conectado</div>
         <h2 id="slide-4-heading" tabindex="-1" class="text-3xl font-bold sm:text-4xl">
-          Small and polished beats many halfway.
+          Poco y pulido gana a mucho a medias.
         </h2>
         <p class="mt-3 max-w-2xl opacity-80">
-          Styling and motion now share one shell. Real slide content is the next change.
+          Estilo y movimiento ya comparten una base. El contenido real llega en el siguiente cambio.
         </p>
         <div class="mt-6 flex flex-wrap gap-3">
-          <a href="#slide-1" class="btn btn-primary" data-prev>Back to start</a>
+          <a href="#slide-1" class="btn btn-primary brutal brutal-press uppercase tracking-wide" data-prev>Volver al inicio</a>
         </div>
       </div>
     </section>
   </main>
 
   <nav
-    aria-label="Slide navigation"
-    class="fixed inset-x-0 bottom-0 z-10 border-t border-base-300 bg-base-100/90 backdrop-blur"
+    aria-label="Navegación de diapositivas"
+    class="fixed inset-x-0 bottom-0 z-10 border-t-[3px] border-base-content bg-base-100"
   >
     <div class="mx-auto flex w-full max-w-4xl items-center justify-between gap-3 px-4 py-2 sm:px-6">
-      <button type="button" id="deck-prev" class="btn btn-ghost btn-sm">&larr; Prev</button>
-      <p class="text-sm opacity-70" aria-live="polite">
-        <span id="deck-count">1 / 4</span>
-        <span class="hidden sm:inline"> &middot; Arrow keys work too</span>
+      <button type="button" id="deck-prev" class="btn btn-ghost btn-sm brutal brutal-press uppercase tracking-wide">&larr; Anterior</button>
+      <p class="text-sm opacity-70">
+        <span id="deck-count" aria-hidden="true">1 / 4</span>
+        <span id="deck-count-sr" class="sr-only" aria-live="polite">Diapositiva 1 de 4</span>
+        <span class="hidden sm:inline"> &middot; También con las flechas <span aria-hidden="true">⌨️</span></span>
       </p>
-      <button type="button" id="deck-next" class="btn btn-primary btn-sm">Next &rarr;</button>
+      <div class="flex items-center gap-2">
+        <label class="swap swap-rotate brutal-sm brutal-press cursor-pointer px-2 py-1 text-lg leading-none">
+          <input type="checkbox" class="theme-controller" value="brutal-dark" aria-label="Cambiar entre tema claro y oscuro" />
+          <span class="swap-off" aria-hidden="true">🌞</span>
+          <span class="swap-on" aria-hidden="true">🌚</span>
+        </label>
+        <button type="button" id="deck-next" class="btn btn-primary btn-sm brutal brutal-press uppercase tracking-wide">Siguiente &rarr;</button>
+      </div>
     </div>
   </nav>
   <div class="h-16" aria-hidden="true"></div>
@@ -132,6 +140,7 @@ import Layout from '../layouts/Layout.astro';
 
   const slides = Array.from(document.querySelectorAll("[data-slide]"));
   const count = document.getElementById("deck-count");
+  const countSr = document.getElementById("deck-count-sr");
   const prevBtn = document.getElementById("deck-prev");
   const nextBtn = document.getElementById("deck-next");
   let currentIndex = 0;
@@ -141,6 +150,7 @@ import Layout from '../layouts/Layout.astro';
 
   function updateCount() {
     if (count) count.textContent = `${currentIndex + 1} / ${slides.length}`;
+    if (countSr) countSr.textContent = `Diapositiva ${currentIndex + 1} de ${slides.length}`;
     if (prevBtn) prevBtn.toggleAttribute("disabled", currentIndex === 0);
     if (nextBtn) nextBtn.toggleAttribute("disabled", currentIndex === slides.length - 1);
   }
@@ -212,7 +222,14 @@ import Layout from '../layouts/Layout.astro';
   );
 
   window.addEventListener("keydown", (event) => {
-    if (event.key === "ArrowRight" || event.key === "ArrowDown" || event.key === " ") {
+    if (event.key === " ") {
+      const target = event.target;
+      if (target instanceof HTMLElement && target.closest("input, button, a, select, textarea, [contenteditable]")) {
+        return;
+      }
+      event.preventDefault();
+      void goTo(currentIndex + 1, "forward");
+    } else if (event.key === "ArrowRight" || event.key === "ArrowDown") {
       event.preventDefault();
       void goTo(currentIndex + 1, "forward");
     } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {

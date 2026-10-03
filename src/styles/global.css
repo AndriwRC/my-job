@@ -1,2 +1,114 @@
 @import "tailwindcss";
-@plugin "daisyui";
+@plugin "daisyui" {
+  themes: false;
+}
+@plugin "daisyui/theme" {
+  name: "brutal";
+  default: true;
+  color-scheme: light;
+
+  --color-base-100: oklch(0.97 0.02 95);
+  --color-base-200: oklch(0.93 0.03 95);
+  --color-base-300: oklch(0.88 0.04 95);
+  --color-base-content: oklch(0.2 0.01 95);
+
+  --color-primary: oklch(0.92 0.12 95);
+  --color-primary-content: oklch(0.2 0.01 0);
+  --color-secondary: oklch(0.7 0.18 350);
+  --color-secondary-content: oklch(0.2 0.01 0);
+  --color-accent: oklch(0.8 0.12 230);
+  --color-accent-content: oklch(0.2 0.01 0);
+  --color-neutral: oklch(0.2 0.01 0);
+  --color-neutral-content: oklch(0.97 0.02 95);
+
+  --color-info: oklch(0.75 0.12 230);
+  --color-info-content: oklch(0.2 0.01 0);
+  --color-success: oklch(0.85 0.15 130);
+  --color-success-content: oklch(0.2 0.01 0);
+  --color-warning: oklch(0.75 0.15 60);
+  --color-warning-content: oklch(0.2 0.01 0);
+  --color-error: oklch(0.65 0.18 25);
+  --color-error-content: oklch(0.2 0.01 0);
+
+  --radius-selector: 0rem;
+  --radius-field: 0rem;
+  --radius-box: 0rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 2px;
+  --depth: 0;
+  --noise: 0;
+}
+@plugin "daisyui/theme" {
+  name: "brutal-dark";
+  color-scheme: dark;
+
+  --color-base-100: oklch(0.2 0.02 95);
+  --color-base-200: oklch(0.24 0.02 95);
+  --color-base-300: oklch(0.28 0.03 95);
+  --color-base-content: oklch(0.97 0.02 95);
+
+  --color-primary: oklch(0.92 0.12 95);
+  --color-primary-content: oklch(0.2 0.01 0);
+  --color-secondary: oklch(0.7 0.18 350);
+  --color-secondary-content: oklch(0.2 0.01 0);
+  --color-accent: oklch(0.8 0.12 230);
+  --color-accent-content: oklch(0.2 0.01 0);
+  --color-neutral: oklch(0.97 0.02 95);
+  --color-neutral-content: oklch(0.2 0.01 0);
+
+  --color-info: oklch(0.75 0.12 230);
+  --color-info-content: oklch(0.2 0.01 0);
+  --color-success: oklch(0.85 0.15 130);
+  --color-success-content: oklch(0.2 0.01 0);
+  --color-warning: oklch(0.75 0.15 60);
+  --color-warning-content: oklch(0.2 0.01 0);
+  --color-error: oklch(0.65 0.18 25);
+  --color-error-content: oklch(0.2 0.01 0);
+
+  --radius-selector: 0rem;
+  --radius-field: 0rem;
+  --radius-box: 0rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 2px;
+  --depth: 0;
+  --noise: 0;
+}
+
+@theme {
+  --shadow-brutal-sm: 3px 3px 0 0 var(--color-base-content);
+  --shadow-brutal: 6px 6px 0 0 var(--color-base-content);
+  --shadow-brutal-lg: 10px 10px 0 0 var(--color-base-content);
+  --font-sans: var(--font-display), system-ui, sans-serif;
+}
+
+@utility brutal {
+  border: 3px solid var(--color-base-content);
+  box-shadow: var(--shadow-brutal);
+}
+
+@utility brutal-sm {
+  border: 2px solid var(--color-base-content);
+  box-shadow: var(--shadow-brutal-sm);
+}
+
+@utility brutal-press {
+  transition-property: translate, box-shadow;
+  transition-duration: 120ms;
+  transition-timing-function: ease-out;
+
+  &:hover {
+    translate: 3px 3px;
+    box-shadow: var(--shadow-brutal-sm);
+  }
+
+  &:active {
+    translate: 6px 6px;
+    box-shadow: 0 0 0 0 transparent;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}

@@ -1,4 +1,5 @@
 ---
+import { Font } from 'astro:assets';
 import '../styles/global.css';
 
 interface Props {
@@ -7,12 +8,12 @@ interface Props {
 }
 
 const {
-	title = "My Job — A Web Developer's Presentation",
-	description = "A slide-style presentation about what I do as a web developer, built with Astro, Tailwind, daisyUI, and GSAP.",
+	title = "Mi trabajo 💻 — Presentación de un desarrollador web",
+	description = "Una presentación tipo diapositivas sobre lo que hago como desarrollador web, hecha con Astro, Tailwind, daisyUI y GSAP.",
 } = Astro.props;
 ---
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -21,6 +22,7 @@ const {
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
 		<title>{title}</title>
+		<Font cssVariable="--font-display" preload />
 	</head>
 	<body>
 		<slot />

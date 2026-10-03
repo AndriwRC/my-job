@@ -32,13 +32,16 @@ is an example of that job.
 
 ## How it's built
 
-| Tool                                           | Role                                                                  |
-| :--------------------------------------------- | :-------------------------------------------------------------------- |
-| [Astro](https://astro.build)                   | Content-first pages that ship only the JavaScript they need           |
-| [Tailwind CSS](https://tailwindcss.com)        | Styling                                                               |
-| [daisyUI](https://daisyui.com)                 | UI components and theming on top of Tailwind                          |
-| [GSAP](https://gsap.com)                       | Animation and transitions, the part that makes the "slides" move      |
+| Tool                                           | Role                                                                                                  |
+| :--------------------------------------------- | :---------------------------------------------------------------------------------------------------- |
+| [Astro](https://astro.build)                   | Content-first pages that ship only the JavaScript they need                                           |
+| [Astro Fonts API](https://docs.astro.build/en/guides/fonts/) | Space Grotesk display typeface via `fontProviders.google()` with a system fallback            |
+| [Tailwind CSS](https://tailwindcss.com)        | Styling                                                                                               |
+| [daisyUI](https://daisyui.com)                 | UI components with a custom neo-brutalist theme (`brutal` light default + `brutal-dark` variant)      |
+| [GSAP](https://gsap.com)                       | Animation and transitions, the part that makes the "slides" move                                      |
 | [OpenSpec](https://github.com/Fission-AI/OpenSpec) | Spec-driven workflow: each feature starts as a proposal, design, and task list before any code, built with AI coding agents |
+
+UI copy is Spanish for a Spanish-speaking audience, while code, comments, specs, and docs stay in English.
 
 ## Running it
 
